@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['evforum.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['p4-ev-forum.herokuapp.com', 'localhost']
 
 
 # Application definition
