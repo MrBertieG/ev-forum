@@ -52,7 +52,7 @@ class Comment(models.Model):
     """Schema for the Comment model"""
     body = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE,
-                                relted_name="user_comments")
+                                related_name="user_comments")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     image = CloudinaryField("image", blank=True)
