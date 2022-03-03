@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views import generic, View
 from django.contrib import messages
 from .models import Post, Category
-from .forms import PostAddForm, CommentForm, ContactForm
+from .forms import CommentForm
 from django.http import HttpResponseRedirect
 
 class CategoryList(generic.ListView):
@@ -52,6 +52,36 @@ class PostDetails(View):
         return render(
             request,
             'post_detail.html',
+            {
+                "post": post,
+                "comments": comments,
+                "liked": liked,
+                "comment_form": CommentForm()
+            },
+        )
+
+    def post(self, request, id, *args, **kwargs):
+        queryset = Post.objects
+        post = get_object_or_404(queryset, id=id)
+        comments = post.post_comments.order_by('created')
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.author = request.user
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 
+                                'Commented successfully')
+        else:
+            comment_form = CommentForm()
+        
+        return render(
+            request,
+            'post_detil.html',
             {
                 "post": post,
                 "comments": comments,

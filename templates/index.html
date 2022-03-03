@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Category Entry Column -->
+        <div class="col-12 mt-3 left">
+
+            <h4 class="text-center mt-5"><strong>Welcome to The Electric Vehicles Forum</strong></h4>
+            <img src="https://res.cloudinary.com/dok67s0wm/image/upload/v1646081947/etron_taycan_ykpy3t.jpg" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+            <div class="row">
+
+                {% for category in category_list %}
+                <div class="col-lg-3 col-sm-6 mt-4">
+                    <div class="card mb-2">
+                        <div class="card-header text-white" style="background-color: black;"> 
+                            {{ category.name }} 
+                        </div>
+                        
+                        <div class="card-body">
+                            <p class="card-text">{{ category.desc_box }}</p>
+                            <a href="{% url 'category_detail' category.name %}" class="btn btn-success">Go to section</a>                         
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+{% endblock %}

@@ -47,9 +47,18 @@ INSTALLED_APPS = [
     'cloudinary',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django_summernote',
     'forum',
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-info',
