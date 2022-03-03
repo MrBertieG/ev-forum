@@ -180,6 +180,32 @@ class PostEdit(View):
             )
 
 
+@method_decorator(login_required, name='post')
+class PostLike(View):
+    """Renders likes under the post"""
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return redirect(reverse('post_detail', args=[post.id]))
+
+
+@login_required
+def delete_post(request, id, *args, **kwargs):
+    """ View to delete post """
+    queryset = Post.objects
+    post = get_object_or_404(queryset, id=id)
+
+    if request.user == post.author:
+        post.delete()
+        messages.add_message(request, messages.SUCCESS,
+                             'Post deleted!')
+
+    return redirect('home')
+
 
 class ContactUs(View):
     """Render view to allow users to send a message to admin"""
