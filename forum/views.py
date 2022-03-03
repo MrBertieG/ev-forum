@@ -91,6 +91,45 @@ class PostDetails(View):
         )
 
 
+@method_decorator(login_required, name='post')
+class PostAdd(View):
+    """View to allow adding of new posts"""
+    def get(self, request, *args, **kwargs):
+        model = Post
+        template_name = 'add_post.html'
+
+        return render(
+            request,
+            'add_post.html',
+            {
+                'post_add_form': PostAddForm()
+            },
+        )
+    
+    def post(self, request, *args, **kwargs):
+        letterstr = string.ascii_lowercase
+        slugval = ''.join(random.choice(letterstr)for i in range(6))
+
+        post_add_form = PostAddForm(data=request.POST)
+
+        if post_add_form.is_valid():
+            post = post_add_form.save(commit=False)
+            post.author = request.user
+            post.slug = slugval
+            if len(request.FILES) !=0:
+                post.image = request.FILES['image']
+
+            post.save()
+            messages.add_message(request, messages.SUCCESS,
+                                    'Post successfully added!')
+        else:
+            messages.add_message(request, messages.WARNING,
+                                    'Failed to add post' +
+                                    'See guidance on creating a post!')
+        
+        return redirect(reverse('post_detail', args=[post.id]))
+
+
 class ContactUs(View):
     """Render view to allow users to send a message to admin"""
     def get(self, request, *args, **kwargs):

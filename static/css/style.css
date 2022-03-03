@@ -1,0 +1,24 @@
+#nav {
+    background-color: black;
+}
+
+.navbar-toggler {
+    background-color: white;
+}
+
+.login label,
+.signup label {
+    display: block;
+}
+
+.signup {
+    justify-content: center;
+}
+
+textarea {
+    width: 100%;
+}
+
+footer {
+    background-color: black;
+}

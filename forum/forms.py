@@ -13,6 +13,14 @@ class CommentForm(forms.ModelForm):
 
 
 class ContactForm(forms.ModelForm):
+    """"Form for contact us page"""
     class Meta:
         model = Contact
         fields = ('first_name', 'last_name', 'email', 'body',)
+
+
+class PostAddForm(forms.ModelForm):
+    """ Form for adding or editing posts """
+    class Meta:
+        model = Post
+        fields = ('category', 'title', 'body', 'image', 'id',)
