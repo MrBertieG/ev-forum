@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views import generic, View
 from django.contrib import messages
 from .models import Post, Category
-from .forms import CommentForm
+from .forms import PostAddForm, CommentForm, ContactForm
 from django.http import HttpResponseRedirect
 
 class CategoryList(generic.ListView):
@@ -128,6 +128,57 @@ class PostAdd(View):
                                     'See guidance on creating a post!')
         
         return redirect(reverse('post_detail', args=[post.id]))
+
+
+@method_decorator(login_required, name='post')
+class PostEdit(View):
+    """ View to allow ediiting of existing posts"""
+    def get(self, request, od, *args, **kwargs):
+        queryset = Post.objects
+        post = get_object_or_404(queryset, id=id)
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        return render (
+            request,
+            'edit_post.html',
+            {
+                'liked': liked,
+                'post_edit_form': PostAddForm(instance=post)
+            },
+        )
+
+    def post(self, request, id, *args, **kwargs):
+        queryset = Post.objects
+        comments = post.post_comments.order_by('created')
+        liked = False
+
+        post_edit_form = PostAddForm(request,POST, instance=post)
+
+        if request.user == post.author:
+            if post_edit_form.is_valid():
+                post_edit_form.save()
+                messages.add_message(request, messages.SUCCESS,
+                        'Post successfully amended!')
+            if post.likes.filter(id=self.request.user.id).exists():
+                liked = True
+            else:
+                post_edit_form = PostAddForm(instance=post)
+                messages.add_message(request, messages.WARNING,
+                                    'Failed to add post' +
+                                    'See guidance on creating a post!')
+            
+            return render(
+                request, 'post_detail.html',
+                {
+                    "post": post,
+                    "comments": comments,
+                    "liked": liked,
+                    "comment_form": CommentForm()
+                },
+            )
+
 
 
 class ContactUs(View):
