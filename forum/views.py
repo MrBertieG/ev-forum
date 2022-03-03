@@ -89,3 +89,16 @@ class PostDetails(View):
                 "comment_form": CommentForm()
             },
         )
+
+
+class ContactUs(View):
+    """Render view to allow users to send a message to admin"""
+    def get(self, request, *args, **kwargs):
+
+        return render(
+            request,
+            'contact_us.html',
+            {
+                'contact_us_form': ContactForm()
+            },
+        )
