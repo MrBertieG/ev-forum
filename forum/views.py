@@ -39,7 +39,7 @@ class CategoryDetail(View):
 
 
 @method_decorator(login_required, name='post')
-class PostDetails(View):
+class PostDetail(View):
     """View to render details for a chosen post"""
     def get(self, request, id, *args, **kwargs):
         queryset = Post.objects
