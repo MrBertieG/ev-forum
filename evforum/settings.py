@@ -35,6 +35,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['p4-ev-forum.herokuapp.com', 'localhost']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 
