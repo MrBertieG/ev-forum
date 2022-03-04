@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<!--Layout for editing a post if it belongs to the author-->
+<h4 class="text-center my-2"><strong>Guidance on editing posts</strong></h4>
+<ul class="text-center list-group">
+    <li>You must insert a Title</li>
+    <li>You must select a Category</li>
+    <li>The body cannot be left blank.</li>
+</ul>
+
+<div class="col-12 mt-3">
+    <div class="card text-white mb-2" style="max-width: 100%;">
+        <div class="card-header bg-dark" style="margin-bottom: 0.3rem;">
+            <h4>Edit Post</h4>
+        </div>
+
+        <div class="card-body bg-dark">
+            <p>Posting as: {{ user.username }}</p>
+            <form method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
+
+                {{ post_edit_form | crispy }}
+                {% csrf_token %}
+
+                <br>
+                <button type="submit" class="btn btn-success">Save Post</button>
+            </form>               
+        </div>               
+    </div>
+</div>
+
+{% endblock %}
