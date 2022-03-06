@@ -9,6 +9,8 @@ from .models import Post, Category
 from .forms import PostAddForm, CommentForm, ContactForm
 from django.http import HttpResponseRedirect
 
+# Views for PostDetail, PostAdd, PostEdit and delete_post
+
 class CategoryList(generic.ListView):
     """View to render the category list"""
     model = Category
@@ -17,7 +19,7 @@ class CategoryList(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CategoryList, self).get_context_data(**kwargs)
-        context['post'] = Post.objects.order_by('-created')
+        context['posts'] = Post.objects.order_by('-created')
         return context
 
 
@@ -40,7 +42,7 @@ class CategoryDetail(View):
 
 @method_decorator(login_required, name='post')
 class PostDetail(View):
-    """View to render details for a chosen post"""
+    """ View to render detail for a chosen post """
     def get(self, request, id, *args, **kwargs):
         queryset = Post.objects
         post = get_object_or_404(queryset, id=id)
@@ -48,7 +50,7 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        
+
         return render(
             request,
             'post_detail.html',
@@ -74,11 +76,12 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 
-                                'Commented successfully')
+            messages.add_message(request, messages.SUCCESS,
+                                 'Reply successfully added!')
+
         else:
             comment_form = CommentForm()
-        
+
         return render(
             request,
             'post_detail.html',
@@ -89,6 +92,46 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+
+@method_decorator(login_required, name='post')
+class PostAdd(View):
+    """ View to allow adding of new posts """
+    def get(self, request, *args, **kwargs):
+        model = Post
+        template_name = 'add_post.html'
+        
+        return render(
+            request,
+            'add_post.html',
+            {
+                'post_add_form': PostAddForm()
+            }
+        )
+
+    def post(self, request, *args, **kwargs):
+        letterstr = string.ascii_lowercase
+        slugval = ''.join(random.choice(letterstr) for i in range(6))
+
+        post_add_form = PostAddForm(data=request.POST)
+
+        if post_add_form.is_valid():
+            post = post_add_form.save(commit=False)
+            post.author = request.user
+            post.slug = slugval
+            if len(request.FILES) != 0:
+                post.image = request.FILES['image']
+            
+            post.save()
+            messages.add_message(request, messages.SUCCESS,
+                                 'Post successfully added!')
+
+        else:
+            messages.add_message(request, messages.WARNING,
+                                 'Post not added. Please see ' +
+                                 '"Guidance on creating posts."')
+
+        return redirect(reverse('post_detail', args=[post.id]))
 
 
 @method_decorator(login_required, name='post')

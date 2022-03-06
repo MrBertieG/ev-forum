@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
 import dj_database_url
-
 if os.path.isfile("env.py"):
    import env
 
@@ -43,11 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'cloudinary_storage',
     'django.contrib.sessions',
-    'cloudinary',
     'django.contrib.messages',
+    # 'django.contrib.sites',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'crispy_forms',
     'allauth',
     'allauth.account',

@@ -22,3 +22,7 @@ textarea {
 footer {
     background-color: black;
 }
+
+#btn-comment {
+    margin-top: 1rem;
+}
