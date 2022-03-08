@@ -115,8 +115,8 @@
     </div>
     
     <div class="row">
-        <div class="col-md-8 card mb-4 mt-3">
-            <div class="card-header d-flex justify-content-between border border-dark" style="padding: 0;">
+        <div class="col-md-6 card mb-4 mt-3 border border-dark" style ="padding: 1px;">
+            <div class="card-header" style="padding: 0;">
                 <h3>Comments:</h3>
             </div>
             <div class="card-body">
@@ -138,7 +138,7 @@
                 {% endfor %}
             </div>
         </div>
-        
+        <div class="col-md-1 mb-4"></div>
         <div class="col-md-4 card mb-4 mt-3 text-white bg-dark">
             <div class="card-body">
                 {% if user.is_authenticated %}
