@@ -30,3 +30,7 @@ footer {
 a {
     color: white;
   }
+
+  #category-card {
+    height: 3rem;
+  }
