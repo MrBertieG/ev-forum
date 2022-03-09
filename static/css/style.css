@@ -34,3 +34,7 @@ a {
   #category-card {
     height: 3rem;
   }
+
+#add-comment {
+    height: 20rem;
+}

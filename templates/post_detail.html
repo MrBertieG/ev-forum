@@ -122,7 +122,7 @@
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
+                <div class="comments border border-dark" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                         {{ comment.author }}
@@ -139,10 +139,9 @@
             </div>
         </div>
         <div class="col-md-1 mb-4"></div>
-        <div class="col-md-4 card mb-4 mt-3 text-white bg-dark">
+        <div class="col card mb-4 mt-3 text-white bg-dark" id="add-comment">
             <div class="card-body">
                 {% if user.is_authenticated %}
-
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3em;">
