@@ -38,3 +38,18 @@ a {
 #add-comment {
     height: 20rem;
 }
+
+ul {
+    list-style-type: none;
+}
+
+#comments {
+    border-bottom: 1px solid grey;
+}
+
+#comments-header {
+    color: white;
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-bottom: 0.3rem;
+}

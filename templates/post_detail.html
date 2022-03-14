@@ -5,14 +5,14 @@
     <div class="container" style="padding-right: 0; padding-top: 1rem;">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Post Title -->
+                <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author and when it was created -->
+                <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created }}</p>
             </div>
 
             <div class="d-flex flex-row-reverse col-md-6">
-                <!-- Featured image if no image is uploaded by user -->
+                <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.image.url %}
                 <img src="https://res.cloudinary.com/dok67s0wm/image/upload/v1644002912/ev_logo_oesyu2.jpg" width="50%" height="100%" class="img-thumbnail">
                 {% else %}
@@ -28,13 +28,13 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- Post content along with line breaks enabled -->
+                <!-- The post content goes inside the card-text. -->
                 <p class="card-text ">
                     {{ post.body | safe | linebreaks }}
                 </p>
                 <div class="row">
+
                     <div class="col-1">
-                        <!-- Ability for registered users to like a post-->
                         {% if user.is_authenticated %}
                         <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                             {% csrf_token %}
@@ -52,8 +52,8 @@
                             {% endif %}
                         </form>
 
-                         <!-- Modal for deleting a post-->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="modalHeading" aria-hidden="true">
+                         <!-- Modal -->
+                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="modalHeading" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -65,7 +65,8 @@
                                     </div>
                                     <div class="modal-footer">
                                         <div class="btn d-inline-block btn-danger">
-                                            <a href="{% url 'delete_post' post.id %}">Delete</a>
+                                            <!-- Adjusted following discussion with mentor -->
+                                            <a class="text-decoration-none" href="{% url 'delete_post' post.id %}">Delete</a>
                                         </div>
                                         <button type="button" class="btn main-btn" data-bs-dismiss="modal">Close</button>
                                     </div>
@@ -74,35 +75,32 @@
                         </div>
 
                         {% else %}
-                        <!-- Greyed out like symbol if no likes -->
+                        <!-- The number of likes goes before the closing strong tag -->
                         <span class="text-secondary"><i class="far fa-heart"></i></span>
                         {% endif %}
-                        <!-- Number of total likes on a post -->
                         <span class="text-secondary"> {{ post.number_of_likes }} </span>
                     </div>
 
                     <div class="col-1">
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- Total amount of comments on a post -->
+                            <!-- Our total_comments variable goes before the closing strong tag -->
                             {{ total_comments }}</strong>
                         {% endwith %}
                     </div>
                     
                     <div class="col-10 d-flex justify-content-end">
-                        <!--Enables user to be able to edit an existing post if they are the authors-->
                         {% if user == post.author %}
                                 <div class="btn btn-sm d-inline-block main-btn ms-3">
                                     <a href="{% url 'edit_post' post.id %}" class="text-decoration-none text-dark">Edit <i class="fas fa-pen"></i></a>
                                 </div>
-                                
-                                <!-- Modal trigger button -->
+                                        <!-- Modal trigger button -->
                                 <button type="button" class="btn btn-sm main-btn ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                     Delete  <i class="far fa-trash-alt"></i>
                                 </button> 
-                            {% else %}
+                                {% else %}
                                 
-                        {% endif %}
+                            {% endif %}
                     </div>
                 </div>
             </div>
@@ -113,16 +111,15 @@
             <hr>
         </div>
     </div>
-    
     <div class="row">
-        <div class="col-md-6 card mb-4 mt-3 border border-dark" style ="padding: 1px;">
-            <div class="card-header" style="padding: 0;">
-                <h3>Comments:</h3>
+        <div class="col-md-7 card mb-4  mt-3 ">
+            <div class="card-header bg-dark" id="comments-header">
+            <h3>Comments:</h3>
             </div>
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
-                <div class="comments border border-dark" style="padding: 10px;">
+                <div id="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                         {{ comment.author }}
@@ -138,17 +135,19 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-1 mb-4"></div>
-        <div class="col card mb-4 mt-3 text-white bg-dark" id="add-comment">
-            <div class="card-body">
-                {% if user.is_authenticated %}
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary btn-lg" id="btn-comment">Submit</button>
-                </form>
+        <div class="col"></div>
+        <div class="col-md-4 card mb-4 mt-2 text-white" style="max-width: 100%; max-height: 50rem;">
+
+                <div class="card-header bg-dark" style="margin-bottom: 0.3rem;">
+                    {% if user.is_authenticated %}
+                    <h3>Leave a comment:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                    </form>
                 {% endif %}
             </div>
         </div>
