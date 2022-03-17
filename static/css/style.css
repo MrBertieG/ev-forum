@@ -6,6 +6,27 @@
     background-color: white;
 }
 
+#container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-container {
+
+    animation-name: banner-zoom;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes banner-zoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
 .login label,
 .signup label {
     display: block;
@@ -15,12 +36,12 @@
     justify-content: center;
 }
 
-textarea {
-    width: 100%;
+#banner-img {
+    height: 117px; width: 125px;
 }
 
-footer {
-    background-color: black;
+textarea {
+    width: 100%;
 }
 
 #btn-comment {
@@ -29,18 +50,18 @@ footer {
 
 a {
     color: white;
-  }
-
-  #category-card {
-    height: 3rem;
-  }
-
-#add-comment {
-    height: 20rem;
 }
 
 ul {
     list-style-type: none;
+}
+
+#category-card {
+    height: 3rem;
+}
+
+#add-comment {
+    height: 20rem;
 }
 
 #comments {
@@ -52,4 +73,15 @@ ul {
     margin-left: -12px;
     margin-right: -12px;
     margin-bottom: 0.3rem;
+}
+
+#recent-posts-card {
+    max-width: 100%;
+}
+
+#recent-posts-header {
+    background-color: black;
+}
+footer {
+    background-color: black;
 }

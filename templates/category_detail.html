@@ -22,7 +22,7 @@
     <p class="text-center mt-5"><a href="{% url 'account_login' %}" class="sign-in-prompt">Sign in</a> to add a post.</p>
     {% endif %}
 
-    <!-- Post+ Button -->
+    <!-- 'Add Post+' Button -->
     <div class="col-12 mt-3 left">
         <div class="d-flex flex-row-reverse">
             <button type="button" class="btn btn-success">
@@ -33,8 +33,8 @@
 
     <!--Recent Posts diplay using a card style-->
     <div class="col-12 mt-3 left">
-        <div class="card text-white bg-dark mb-2 border-bottom border-white" style="max-width: 100%;">
-            <div class="d-flex justify-content-between card-header" style="background-color: black;">
+        <div class="card text-white bg-dark mb-2 border-bottom border-white" id="recent-posts-card">
+            <div class="d-flex justify-content-between card-header" id="recent-posts-header">
                 <h5>Recent Posts</h5>
                 <h5>Created</h5>
             </div>

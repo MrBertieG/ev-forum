@@ -77,7 +77,7 @@ class PostDetail(View):
             comment.post = post
             comment.save()
             messages.add_message(request, messages.SUCCESS,
-                                 'Reply successfully added!')
+                                 'Comment successfully added!')
 
         else:
             comment_form = CommentForm()
@@ -92,7 +92,7 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-
+    
 
 @method_decorator(login_required, name='post')
 class PostAdd(View):
