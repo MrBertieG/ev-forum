@@ -48,6 +48,15 @@ textarea {
     margin-top: 1rem;
 }
 
+.btn-like {
+    border: none;
+    background-color: white;
+}
+
+.fa-heart-circle-check {
+    color: red;
+}
+
 a {
     color: white;
 }
