@@ -208,17 +208,21 @@ class PostEdit(View):
             if post.likes.filter(id=self.request.user.id).exists():
                 liked = True
             else:
-                
-                return render(
-                    request,
-                    'post_detail.html',
-                    {
-                        "post": post,
-                        "comments": comments,
-                        "liked": liked,
-                        "comment_form": CommentForm()
-                    },
-                )
+                post_edit_form = PostAddForm(instance=post)
+                messages.add_message(request, messages.WARNING,
+                                     'Post not amended. Please see ' +
+                                     '"Guidance on editing posts."')
+
+        return render(
+            request,
+            'post_detail.html',
+            {
+                "post": post,
+                "comments": comments,
+                "liked": liked,
+                "comment_form": CommentForm()
+            },
+        )
 
 
 @method_decorator(login_required, name='post')
