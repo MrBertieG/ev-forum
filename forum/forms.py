@@ -1,7 +1,6 @@
 from .models import Comment, Post, Contact
 from django import forms
 
-
 class CommentForm(forms.ModelForm):
     """ Form for posting comments """
     class Meta:
@@ -24,3 +23,11 @@ class PostAddForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('category', 'title', 'body', 'image', 'id',)
+
+
+class PostEditForm(forms.ModelForm):
+    """ Form for adding or editing posts """
+    class Meta:
+        model = Post
+        fields = ('category', 'title', 'body', 'id',)
+

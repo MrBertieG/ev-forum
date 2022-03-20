@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views import generic, View
 from django.contrib import messages
 from .models import Post, Category
-from .forms import PostAddForm, CommentForm, ContactForm
+from .forms import PostAddForm, CommentForm, ContactForm, PostEditForm
 from django.http import HttpResponseRedirect
 
 # Views for PostDetail, PostAdd, PostEdit and delete_post
@@ -134,43 +134,43 @@ class PostAdd(View):
         return redirect(reverse('post_detail', args=[post.id]))
 
 
-@method_decorator(login_required, name='post')
-class PostAdd(View):
-    """View to allow adding of new posts"""
-    def get(self, request, *args, **kwargs):
-        model = Post
-        template_name = 'add_post.html'
+# @method_decorator(login_required, name='post')
+# class PostAdd(View):
+#     """View to allow adding of new posts"""
+#     def get(self, request, *args, **kwargs):
+#         model = Post
+#         template_name = 'add_post.html'
 
-        return render(
-            request,
-            'add_post.html',
-            {
-                'post_add_form': PostAddForm()
-            },
-        )
+#         return render(
+#             request,
+#             'add_post.html',
+#             {
+#                 'post_add_form': PostAddForm()
+#             },
+#         )
     
-    def post(self, request, *args, **kwargs):
-        letterstr = string.ascii_lowercase
-        slugval = ''.join(random.choice(letterstr)for i in range(6))
+#     def post(self, request, *args, **kwargs):
+#         letterstr = string.ascii_lowercase
+#         slugval = ''.join(random.choice(letterstr)for i in range(6))
 
-        post_add_form = PostAddForm(data=request.POST)
+#         post_add_form = PostAddForm(data=request.POST)
 
-        if post_add_form.is_valid():
-            post = post_add_form.save(commit=False)
-            post.author = request.user
-            post.slug = slugval
-            if len(request.FILES) !=0:
-                post.image = request.FILES['image']
+#         if post_add_form.is_valid():
+#             post = post_add_form.save(commit=False)
+#             post.author = request.user
+#             post.slug = slugval
+#             if len(request.FILES) !=0:
+#                 post.image = request.FILES['image']
 
-            post.save()
-            messages.add_message(request, messages.SUCCESS,
-                                    'Post successfully added!')
-        else:
-            messages.add_message(request, messages.WARNING,
-                                    'Failed to add post' +
-                                    'See guidance on creating a post!')
+#             post.save()
+#             messages.add_message(request, messages.SUCCESS,
+#                                     'Post successfully added!')
+#         else:
+#             messages.add_message(request, messages.WARNING,
+#                                     'Failed to add post' +
+#                                     'See guidance on creating a post!')
         
-        return redirect(reverse('post_detail', args=[post.id]))
+#         return redirect(reverse('post_detail', args=[post.id]))
 
 
 @method_decorator(login_required, name='post')
@@ -188,7 +188,7 @@ class PostEdit(View):
             'edit_post.html',
             {
                 'liked': liked,
-                'post_edit_form': PostAddForm(instance=post)
+                'post_edit_form': PostEditForm(instance=post)
             }
         )
 
@@ -198,7 +198,7 @@ class PostEdit(View):
         comments = post.post_comments.order_by('created')
         liked = False
 
-        post_edit_form = PostAddForm(request.POST, instance=post)
+        post_edit_form = PostEditForm(request.POST, instance=post)
 
         if request.user == post.author:
             if post_edit_form.is_valid():
