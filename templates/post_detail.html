@@ -1,5 +1,7 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 {% load crispy_forms_tags %}
+
 
 <div class="masthead">
     <div class="container" style="padding-right: 0; padding-top: 1rem;">
@@ -116,28 +118,28 @@
             <h3>Comments:</h3>
             </div>
             <div class="card-body">
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+
                 {% for comment in comments %}
                 <div id="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+
                         {{ comment.author }}
                         <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
+
                             {{ comment.created }}
                         </span> wrote:
                     </p>
-                    <!-- The body of the comment goes before the | -->
+
                     {{ comment.body | linebreaks }}
                 </div>
-                <!-- Our for loop ends here -->
+
                 {% endfor %}
             </div>
         </div>
         <div class="col"></div>
-        <div class="col-md-4 card mb-4 mt-2 text-white" style="max-width: 100%; max-height: 50rem;">
+        <div class="col-md-4 card mb-4 mt-2 text-white">
 
-                <div class="card-header bg-dark" style="margin-bottom: 0.3rem;">
+                <div class="card-header bg-dark comment-card" style="margin-bottom: 0.3rem;">
                     {% if user.is_authenticated %}
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
@@ -147,6 +149,13 @@
                         {% csrf_token %}
                         <button type="submit" class="btn btn-success btn-lg">Submit</button>
                     </form>
+                {% else %}
+                <div class="card-header bg-dark" style="margin-bottom: 0.3rem;">
+                    <h3>Leave a comment:</h3>
+    
+                    <p>To leave a comment or like a post, please <a class="text-decoration-none text-success" href="{% url 'account_login' %}">login</a>. If you
+                        have not created an account yet, then <a class="text-decoration-none text-success" href="{% url 'account_signup' %}">sign up</a>
+                        first.</p>
                 {% endif %}
             </div>
         </div>

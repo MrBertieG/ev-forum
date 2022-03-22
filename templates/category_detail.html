@@ -15,21 +15,22 @@
                 </div>
             </div>
             {% if user.is_authenticated %}
+            <!-- 'Add Post+' Button -->
+            <div class="col-12 mt-3 left">
+                <div class="d-flex flex-row-reverse">
+                    <button type="button" class="btn btn-success">
+                        <a href="{% url 'add_post' %}" class="text-decoration-none text-white">Add Post<i class="fas fa-plus"></i></a>
+                    </button>
+                </div>
+            </div>
         </div>
-        {% else %}
+            {% else %}
     </div>
     
-    <p class="text-center mt-5"><a href="{% url 'account_login' %}" class="sign-in-prompt">Sign in</a> to add a post.</p>
+    <p class="text-center mt-5"><a href="{% url 'account_login' %}" class="text-decoration-none text-primary">Sign in</a> to add a post.</p>
     {% endif %}
 
-    <!-- 'Add Post+' Button -->
-    <div class="col-12 mt-3 left">
-        <div class="d-flex flex-row-reverse">
-            <button type="button" class="btn btn-success">
-                <a href="{% url 'add_post' %}" class="text-decoration-none text-white">Add Post<i class="fas fa-plus"></i></a>
-            </button>
-        </div>
-    </div>
+
 
     <!--Recent Posts diplay using a card style-->
     <div class="col-12 mt-3 left">

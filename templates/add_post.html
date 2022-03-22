@@ -4,33 +4,33 @@
 
 {% load crispy_forms_tags %}
 
-<!--Rules for adding a post-->
-<h4 class="text-center my-2"><strong>Guidance on creating posts</strong></h4>
-<ul class="text-center list-group">
-    <li>You must insert a Title</li>
-    <li>You must select a Category</li>
-    <li>The body cannot be left blank</li>
-</ul>
+    <!--Rules for adding a post-->
+    <h4 class="text-center my-2"><strong>Guidance on creating posts</strong></h4>
+    <ul class="text-center list-group">
+        <li>You must insert a Title</li>
+        <li>You must select a Category</li>
+        <li>The body cannot be left blank</li>
+    </ul>
 
-<!--Layout for adding a post-->
-<div class="col-12 mt-3">
-    <div class="card text-white mb-2" style="max-width: 100%;">
-        <div class="card-header bg-dark" style="margin-bottom: 0.3rem;">
-            <h4>Add post</h4>
-        </div>
-        
-        <div class="card-body bg-dark">
-            <p>Posting as: {{ user.username }}</p>
-            <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
+    <!--Layout for adding a post-->
+    <div class="col-12 mt-3">
+        <div class="card text-white mb-2" style="max-width: 100%;">
+            <div class="card-header bg-dark" style="margin-bottom: 0.3rem;">
+                <h4>Add post</h4>
+            </div>
+            
+            <div class="card-body bg-dark">
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
 
-                {{ post_add_form | crispy }}
-                {% csrf_token %}
+                    {{ post_add_form | crispy }}
+                    {% csrf_token %}
 
-                <br>
-                <button type="submit" class="btn btn-success">Create Post</button>
-            </form>          
+                    <br>
+                    <button type="submit" class="btn btn-success">Create Post</button>
+                </form>          
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
