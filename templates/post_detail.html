@@ -118,28 +118,23 @@
             <h3>Comments:</h3>
             </div>
             <div class="card-body">
-
                 {% for comment in comments %}
                 <div id="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-
                         {{ comment.author }}
                         <span class=" text-muted font-weight-normal">
-
                             {{ comment.created }}
                         </span> wrote:
                     </p>
-
                     {{ comment.body | linebreaks }}
                 </div>
-
                 {% endfor %}
             </div>
         </div>
         <div class="col"></div>
-        <div class="col-md-4 card mb-4 mt-2 text-white">
+        <div class="col-md-4 card mb-4 mt-2 text-white" style="max-height: 265px;">
 
-                <div class="card-header bg-dark comment-card" style="margin-bottom: 0.3rem;">
+                <div class="card-header bg-dark comment-card">
                     {% if user.is_authenticated %}
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>

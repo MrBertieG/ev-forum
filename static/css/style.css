@@ -87,9 +87,10 @@ ul {
 }
 
 .comment-card {
-    max-height: 50rem;
+    max-height: 100%;
     margin-left: -12px;
     margin-right: -12px;
+    margin-bottom: 0.3rem;
 }
 
 #comments-header {
