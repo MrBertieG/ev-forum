@@ -14,6 +14,10 @@ from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
 import dj_database_url
+
+
+development = os.environ.get('DEVELOPMENT', False)
+
 if os.path.isfile("env.py"):
    import env
 
@@ -30,7 +34,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = development
 
 ALLOWED_HOSTS = ['p4-ev-forum.herokuapp.com', 'localhost']
 
@@ -44,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'django.contrib.sites',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -84,7 +87,7 @@ ROOT_URLCONF = 'evforum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS':[TEMPLATES_DIR],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
