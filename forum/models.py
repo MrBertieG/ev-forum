@@ -21,7 +21,7 @@ class Post(models.Model):
     title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
-                                related_name="user_posts")
+                               related_name="user_posts")
 
     updated = models.DateTimeField(auto_now=True)
     body = models.TextField()
@@ -33,21 +33,18 @@ class Post(models.Model):
         User, related_name='blogpost_like', blank=True)
 
     category = models.ForeignKey(
-        Category, on_delete=models.CASCADE,
-                              related_name="category_posts")
-
+        Category, on_delete=models.CASCADE, related_name="category_posts")
 
     def __str__(self):
         return self.title
 
-
     class Meta:
         """Sorts the posts in descending order"""
         ordering = ["-created"]
-    
 
     def number_of_likes(self):
         return self.likes.count()
+
 
 class Comment(models.Model):
     """Schema for the Comment model"""
@@ -58,7 +55,7 @@ class Comment(models.Model):
     updated = models.DateTimeField(auto_now=True)
     image = CloudinaryField("image", blank=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                                related_name="post_comments")
+                            related_name="post_comments")
     
 
     def __str__(self):

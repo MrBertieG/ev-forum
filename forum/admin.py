@@ -28,6 +28,7 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ('body', 'author__username')
     list_filter = ('author__username', 'created')
 
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     """Contact view in Admin Page"""

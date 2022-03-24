@@ -31,4 +31,3 @@ class PostEditForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('category', 'title', 'body', 'id',)
-
