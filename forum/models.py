@@ -50,22 +50,20 @@ class Comment(models.Model):
     """Schema for the Comment model"""
     body = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE,
-                                related_name="user_comments")
+                               related_name="user_comments")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     image = CloudinaryField("image", blank=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                            related_name="post_comments")
-    
+                             related_name="post_comments")
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
-    
 
     class Meta:
         """Comments in descending order"""
         ordering = ["-created"]
-    
+
 
 class Contact(models.Model):
     """Schema for the Contact page model, to be used in the contact form"""
@@ -74,7 +72,6 @@ class Contact(models.Model):
     email = models.EmailField()
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return f"Message {self.body} from {self.first_name} {self.last_name}"

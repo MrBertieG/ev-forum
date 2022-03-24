@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect
 
 # Views for PostDetail, PostAdd, PostEdit and delete_post
 
+
 class CategoryList(generic.ListView):
     """View to render the category list"""
     model = Category
@@ -96,7 +97,7 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-    
+
 
 @method_decorator(login_required, name='post')
 class PostAdd(View):
@@ -104,7 +105,7 @@ class PostAdd(View):
     def get(self, request, *args, **kwargs):
         model = Post
         template_name = 'add_post.html'
-        
+
         return render(
             request,
             'add_post.html',
@@ -125,7 +126,7 @@ class PostAdd(View):
             post.slug = slugval
             if len(request.FILES) != 0:
                 post.image = request.FILES['image']
-            
+
             post.save()
             messages.add_message(request, messages.SUCCESS,
                                  'Post successfully added!')
@@ -148,7 +149,7 @@ class PostEdit(View):
         post = get_object_or_404(queryset, id=id)
         comments = post.post_comments.order_by('created')
         liked = False
-        
+
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -179,11 +180,10 @@ class PostEdit(View):
             else:
                 post_edit_form = PostAddForm(instance=post)
                 messages.add_message(request, messages.WARNING,
-                                        'Post not amended. Please see ' +
-                                        '"Guidance on editing posts."')
+                                     'Post not amended. Please see ' +
+                                     '"Guidance on editing posts."')
 
             return redirect(reverse('post_detail', args=[post.id]))
-
 
 
 @method_decorator(login_required, name='post')
