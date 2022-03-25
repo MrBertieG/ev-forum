@@ -30,7 +30,7 @@
                 {% endfor %}
 
             </div>
-
+    <!--Layout to display the post and adding a placeholder image if one isn't supplied-->
     <div class="col-12 mt-3 left">
         <div class="row">
             {% for post in post_list %}
@@ -67,13 +67,10 @@
         </div>
 
         <div class="card text-white bg-dark mb-2 border-bottom border-white" style="max-width: 100%;">
-
-
             <div class="d-flex justify-content-between card-header" style="background-color: black;">
                 <h5>Recent Posts</h5>
                 <h5>Created</h5>
             </div>
-            
             {% for post in posts %}
             {% if forloop.counter <= 6 %}
             <div class="card-body border-bottom border-white">

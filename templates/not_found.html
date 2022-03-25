@@ -1,5 +1,25 @@
-<h2>Not Found</h2>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="col-12 mt-3 left">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="image-container">
+                        <img src="https://res.cloudinary.com/dok67s0wm/image/upload/v1648223540/Compass-Group-UK-Ireland-Electric-Vehicle-Policy_mvou5m.jpg" alt="cable" class="img-container img-fluid rounded mx-auto d-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<h2>Error 404. Page Not found! Click below to find your way home.</h2>
 
 <h2>
-    <a href="{% url 'home' %}">Go home</a>
+    <a href="{% url 'home' %}" class="text-decoration-none text-white btn btn-primary">Go home.</a>
 </h2>
+</div>
+{% endblock %}

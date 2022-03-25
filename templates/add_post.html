@@ -22,10 +22,8 @@
             <div class="card-body bg-dark">
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
-
                     {{ post_add_form | crispy }}
                     {% csrf_token %}
-
                     <br>
                     <button type="submit" class="btn btn-success">Create Post</button>
                 </form>          
