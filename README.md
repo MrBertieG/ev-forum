@@ -29,11 +29,22 @@ The website contains four Categories:
 	- Frequent Users
 - Color Design
 ### [2. Features](#features)
-- Interactive Gameplay
+- Landing Page:
+	- Picture banner zoom effect
+	- Navigation Bar
+	- Category Cards:
+		- EV News
+		- Ask The Community
+		- For Sale
+		- Technical Area
+	- Recent Post View
+- Category Section:
+	- Adding a Post button
+	- View all Posts from that category
+- Footer
+- CRUD Functionality
+- Authentication
 - Input Validation
-- Game Colour Features & ASCII Art
-- End of the Game
-- Code Features
 
 ### [3. Wireframe](#wireframe)
 ### [4. Testing](#manual-testing)
@@ -104,44 +115,56 @@ The Message Alerts have been chosen green to emphasize that a comment or a post 
 [Top of the page](#top)
 
 # <a name="features">2. Features</a>
-## Interractive Gameplay
-The user will play against a computer. The computer will choose different positions on the board depending on the user's previous input. The moves are not always the same.
+## Landing Page
 
-## Input Validation
-The user has a choice of various inputs. If the user enters a string or a number, not within the range then the following message will appear, prompting the user to try again.
+### Main Image Banner
 
-- "Initiate the game? (Y/N):" <br>
-	![start validation](img/validation_start.png)
+The Main image on the landing page zooms in when first loaded.
 
-- "Place your 'X' HUMAN (position 1 - 9) or press 'Q' to give up :"<br>
-	![play validation](img/validation_play.png)
+### Navigation Bar
+Small to Medium Screens
+![small to medium screen navbar](media/readme_img/small_to_medium_nav.png)
+
+Large Screen
+![large screen navbar](media/readme_img/large_screen_nav.png)
+
+### Category Cards
+![category card sections](media/readme_img/category_sections.png)
+
+The 'Go to section' button will take the user to their chosen section.
+
+### Recent Posts
+![recent posts landing page](media/readme_img/recent_posts.png)
+The 'Recent Posts' section on the landing page shows the last 6 recent posts made by all users. On the right hand side there's a 'Created' section shows the date and time when the post was created.
 
 [Top of the page](#top)
 
-## Game Colour Features & ASCII Art
-The game has different colour features and additional ASCII Art for a better contrast and visual appeal.
-
-- Game Intro
-	![text intro](img/heroku_start1.png)
-
-- "You WON"
-	![winning](img/you_won_play.png)
-
-- "Bot is the winner"
-	![loosing](img/you_lose_gameplay.png)
-
-- "The game is a tie"
-	![tie](img/tie_play.png)
+## Footer
+![footer section](media/readme_img/footer.png)
+All the social media icons one in a new tab when clicked on. They also have a green hover effect.
 
 <br>
 
 [Top of the page](#top)
 
-## End of the Game
+## CRUD Functionality
 
-The user has the option to play again at the end of each game or quit the game all together.
+A user can:
 
-![game over](img/game_over.png)
+Create a post.
+![create a post page](media/readme_img/add_a_post.png)
+
+Details entered, post created.
+![post detail](media/readme_img/post_detail.png)
+
+Edit a post. The existing information gets loaded and allows the user to change the text.
+![post edit](media/readme_img/post_edit.png)
+![post edit message alert](media/readme_img/edit_alert.png)
+
+Delete a post as long as the user is the author of the post.
+![post delete modal](media/readme_img/delete_modal.png)
+![post delete message alert](media/readme_img/delete_alert.png)
+
 
 [Top of the page](#top)
 ## Code Features
