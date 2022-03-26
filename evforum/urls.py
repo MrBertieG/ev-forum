@@ -24,6 +24,3 @@ urlpatterns = [
 ]
 
 handler404 = 'helpers.views.handler_not_found'
-# handler500 = 'evforum.views.error_500'
-# handler403 = 'evforum.views.error_403'
-# handler400 = 'evforum.views.error_400'

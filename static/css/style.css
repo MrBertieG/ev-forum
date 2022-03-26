@@ -1,3 +1,5 @@
+/* Navigation Bar */
+
 #nav {
     background-color: black;
 }
@@ -6,6 +8,7 @@
     background-color: white;
 }
 
+/* Landing Page Image*/
 #container {
     width: 100%;
     overflow: hidden;
@@ -40,12 +43,9 @@
     height: 117px; width: 125px;
 }
 
+/* Buttons, Textarea, Font Awesome Symbols */
 textarea {
     width: 100%;
-}
-
-#btn-comment {
-    margin-top: 1rem;
 }
 
 .btn-like {
@@ -74,16 +74,27 @@ ul {
     list-style-type: none;
 }
 
-#category-card {
-    height: 3rem;
+.category-card {
+    max-height: 6rem;
+    min-height: 4rem;
 }
 
+/* Comments */
 #add-comment {
     height: 20rem;
 }
 
 #comments {
     border-bottom: 1px solid grey;
+    padding: 10px;
+}
+
+.comment-container {
+    max-height: 292px;
+}
+
+#btn-comment {
+    margin-top: 1rem;
 }
 
 .comment-card {
@@ -107,6 +118,8 @@ ul {
 #recent-posts-header {
     background-color: black;
 }
+
+/* Footer */
 footer {
     background-color: black;
 }

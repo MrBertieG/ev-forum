@@ -16,8 +16,6 @@ from django.contrib.messages import constants as messages
 import dj_database_url
 
 
-# development = os.environ.get('DEVELOPMENT', False)
-
 if os.path.isfile("env.py"):
     import env
 
