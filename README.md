@@ -45,6 +45,7 @@ The website contains four Categories:
 - CRUD Functionality
 - Authentication
 - Input Validation
+- Custom 404 Not Found Page
 
 ### [3. Wireframe](#wireframe)
 ### [4. Testing](#manual-testing)
@@ -183,7 +184,7 @@ Comment alert.
 ![comment alert message](media/readme_img/msg_alert.png)
 <br><br>
 
-Comment added on the feed.
+Comment added on the feed.<br>
 ![comment feed](media/readme_img/comment_feed.png)
 
 [Top of the page](#top)
@@ -200,6 +201,10 @@ Login form.
 
 Once registered or signed up, the user will be redirected to the homepage.
 <br><br>
+
+## 404 Not Found
+
+![not found](media/readme_img/404_not found.png)
 
 [Top of the page](#top)
 ## <a name="wireframe">3. Wireframe</a>
@@ -218,6 +223,7 @@ The wireframe was created using Balsamiq.
 ![web wireframe](media/readme_img/web_frame_6.png)
 ![web wireframe](media/readme_img/web_frame_7.png)
 
+
 ### Database Wireframe
 
 ![database wireframe](media/readme_img/database_diagram.png)
@@ -225,7 +231,7 @@ The wireframe was created using Balsamiq.
 ![post model](media/readme_img/model_database/post_model.png)
 ![comment model](media/readme_img/model_database/comment_model.png)
 ![contact model](media/readme_img/model_database/contact_model.png)
-
+![project cards](media/readme_img/projects_cards.png)
 <br><br>
 
 [Top of the page](#top)
@@ -235,7 +241,6 @@ The wireframe was created using Balsamiq.
 
 admin.py
 ![admin.py file](media/readme_img/pep8_validation/admin_py.png)
-
 
 apps.py
 ![apps.py file](media/readme_img/pep8_validation/apps_py.png)
@@ -266,6 +271,7 @@ style.css
 
 ### HTML Validator
 
+![html validator](media/readme_img/html_checker.png)
 <br><br>
 
 [Top of the page](#top)
@@ -391,7 +397,7 @@ The solution was to setup the redirection correctly.<br>
 <br><br>
 ### Existing Bugs
 
-Currently there are no known existing bugs.
+W3 HTML validator shows some errors which are not present in my code. This only shows when the jinja content is loaded. All of the html tags are opened and closed correctly.
 
 <br><br>
 
