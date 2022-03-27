@@ -153,76 +153,156 @@ A user can:
 
 Create a post.
 ![create a post page](media/readme_img/add_a_post.png)
+<br><br>
 
 Details entered, post created.
 ![post detail](media/readme_img/post_detail.png)
+<br><br>
 
 Edit a post. The existing information gets loaded and allows the user to change the text.
 ![post edit](media/readme_img/post_edit.png)
-![post edit message alert](media/readme_img/edit_alert.png)
-
-Delete a post as long as the user is the author of the post.
-![post delete modal](media/readme_img/delete_modal.png)
-![post delete message alert](media/readme_img/delete_alert.png)
-
-
-[Top of the page](#top)
-## Code Features
-
-- The "flip a coin start" is a small code which allows the program to decide who goes first. It's a very simple piece of code, but it playes a big part in the running of the program and UX. If the code picks 0 then the player will start first, else it will be the computer.<br>
-![random start player](img/ran_start_player.png)<br>
-Player starts first code.<br>
-![random start computer](img/ran_start_comp.png)<br>
-Computer starts first code.
 <br><br>
 
-- The Computer will block a possible winning move.<br>
-	![blocking a move](img/block_move.png)<br>
-In this code the program makes a copy of the board and uses the player's inputs to see if it can win on the next move. If yes, then it will enter it's own symbol in the possible winning position.
+Alert once the post has been amended successfully.
+![post edit message alert](media/readme_img/edit_alert.png)
+<br><br>
 
+Delete a post Modal as long as the user is the author of the post.
+![post delete modal](media/readme_img/delete_modal.png)
+<br><br>
+
+Alert once the post has been deleted succesfully.
+![post delete message alert](media/readme_img/delete_alert.png)
+<br><br>
+
+Comment on a post.<br>
+![comment textarea](media/readme_img/comment_textarea.png)
+<br><br>
+
+Comment alert.
+![comment alert message](media/readme_img/msg_alert.png)
+<br><br>
+
+Comment added on the feed.
+![comment feed](media/readme_img/comment_feed.png)
+
+[Top of the page](#top)
+## Authentication
+
+A user can Sign Up, Login and Logout from the website. This has been achieved using Django's batteries included features and a library called [allauth](https://django-allauth.readthedocs.io/en/latest/installation.html).
+
+Sign Up form.
+![sign up page](media/readme_img/register_form.png)
+<br><br>
+
+Login form.
+![login form](media/readme_img/login_form.png)
+
+Once registered or signed up, the user will be redirected to the homepage.
 <br><br>
 
 [Top of the page](#top)
 ## <a name="wireframe">3. Wireframe</a>
-The wireframe was created using Lucidchart.
+The wireframe was created using Balsamiq.
 
-![wireframe](img/wireframe_xando.jpeg)
+![mobile wireframe](media/readme_img/mobile_frame_1.png)
+![mobile wireframe](media/readme_img/mobile_frame_2.png)
+![mobile wireframe](media/readme_img/mobile_frame_3.png)
+![mobile wireframe](media/readme_img/mobile_frame_4.png)
+
+![web wireframe](media/readme_img/web_frame_1.png)
+![web wireframe](media/readme_img/web_frame_2.png)
+![web wireframe](media/readme_img/web_frame_3.png)
+![web wireframe](media/readme_img/web_frame_4.png)
+![web wireframe](media/readme_img/web_frame_5.png)
+![web wireframe](media/readme_img/web_frame_6.png)
+![web wireframe](media/readme_img/web_frame_7.png)
+
+### Database Wireframe
+
+![database wireframe](media/readme_img/database_diagram.png)
+![category model](media/readme_img/model_database/category_model.png)
+![post model](media/readme_img/model_database/post_model.png)
+![comment model](media/readme_img/model_database/comment_model.png)
+![contact model](media/readme_img/model_database/contact_model.png)
 
 <br><br>
 
 [Top of the page](#top)
-## <a name="wireframe">4. Testing</a>
+## <a name="testing">4. Testing</a>
 
 ### PEP8 Validator
 
-The program passes the PEP8 Validator without any issues.
-![pep8 validator](img/pep8_validator.png)
+admin.py
+![admin.py file](media/readme_img/pep8_validation/admin_py.png)
+
+
+apps.py
+![apps.py file](media/readme_img/pep8_validation/apps_py.png)
+
+forms.py
+![forms.py file](media/readme_img/pep8_validation/apps_py.png)
+
+models.py
+![models.py file](media/readme_img/pep8_validation/models_py.png)
+
+urls.py
+![urls.py file](media/readme_img/pep8_validation/urls_py.png)
+
+views.py
+![views.py file](media/readme_img/pep8_validation/views_py.png)
+
+setting.py<br>
+I have decided to ignore these warnings as trying to split the code would result in potential errors. The code is easy to read and understand in its current format.
+![settings.py file](media/readme_img/pep8_validation/settings_py.png)
+
+urls.py evforum configuration
+![urls.py file](media/readme_img/pep8_validation/urls_evfroum_config.png)
+
+### CSS Validator
+
+style.css 
+![style.css file](media/readme_img/css_validation/style_css.png)
+
+### HTML Validator
 
 <br><br>
 
 [Top of the page](#top)
 ### Manual Testing
+I have been using AmIResponsive to check the responsivness of the website.
 
-![manual testing](img/manual_testing.png)
+I have used Lighthouse for performance and accessibility check.
+![lighthouse check](media/readme_img/lighthouse_performance.png)
+
+![landing page](media/readme_img/manual_testing/testing_landing_page.png)
+![register page](media/readme_img/manual_testing/testing_register_page.png)
+![sign in page](media/readme_img/manual_testing/testing_sign_in_page.png)
+![contact us page](media/readme_img/manual_testing/testing_contact_page.png)
+![category page](media/readme_img/manual_testing/testing_category_page.png)
+![add post page](media/readme_img/manual_testing/testing_add_post_page.png)
+![post details page](media/readme_img/manual_testing/testing_post_page.png)
+![edit post page](media/readme_img/manual_testing/testing_edit_post.png)
 
 <br><br>
 
 [Top of the page](#top)
 ## <a name="tech-used">5. Technologies used</a>
 
-For the creation of this game I have used the following resources:
-
-- Github: to store the repository.
-- Gitpod: to write the code.
-- Slack: to ask for advice from other students.
-- Stack Overflow: to search for bug fixes.
-- PEP8: for making sure the code remains compliant.
-- Random: for the generation of pseudo-random numbers.
-- [Colorama](https://pypi.org/project/colorama/) ANSI escape character sequences have long been used to produce colored terminal text and cursor positioning on Unix and Macs.
-- Youtube: for code explanation.
-- Google: searching for various troubleshooting and inspiration.
-- patorjk.com: for the ASCII Art.
-- inventwithpython.com: for the inspiration of the program's development approach.
+### HTML5
+### CSS3
+### Python
+### Javascript
+### Boostrap 5
+### Django 3.8
+### PostgreSQL
+### Heroku
+### Gitpod
+### Github
+### Balsamiq
+### FontAwesome
+### Google Fonts
+### Google Chrome
 
 <br><br>
 
@@ -230,26 +310,55 @@ For the creation of this game I have used the following resources:
 
 ## <a name="deployment">6. Deployment</a>
 
-To deploy the project, I have used the cloud platform Heroku. 
+### First Deployment
 
-These are the steps I took for the deployment:
-- make sure the lastest pushed version of the repository is uploaded to Github.
-- create a Heroku account.
-- select "New" on the right hand corner, and "Create new app".
-- in the new page, enter the App name making sure it's available, in my case noughts-and-crosses-ag.
-- choose the reagion, in my case Europe.
-- select the "Deployment method", in my case Github.
-- then below, select the repo-name from the Github repository, noughts-and-crosses.
-- select 'Search' and it will be linked automatically.
-- click the "Connect" button. 
-- now click "Enable Automatic Deploys"
-- now on the top bar select "Settings"
-- look for "Add Buildpack" and select python first, press "Save changes" then repeat the process again and select nodejs in this  exact order.
-- now click on "Personal" on the top left corner.
-- click on noughts-and-crosses-ag 
-- click "Open App" on the top right corner.
-- the project is now deployed.
+### Gitpod:
+- Create a new repository using the Code Institute template
+- Follow the guide provided by CI to install Django and it's dependencies
+- Create the new project 'evforum.com'
+- Link to Heroku via the Procfile
+- Create requirements file
 
+### Heroku
+- Log in to Heroku and create a new app 'p4-ev-forum'
+- in the 'Resources' tab search for PostgreSQL and sellect the 'hobby' option.
+- In the 'Settings' tab enable Config Vars
+- Link the following:
+	- CLOUDINARY_URL
+	- DATABASE_URL
+	- SECRET_KEY
+	- DISABLE_COLLECTSTATIC set to 1
+
+### Github
+- Create env.py file and link the database from Heroku
+- Add:
+	- CLOUDINARY_URL
+	- DATABASE_URL
+	- SECRET_KEY
+- Commit and push to Github
+
+### Heroku
+- Under 'Deploy' tab connect the Github repo by searching it in the search bar.
+- Select 'Manual Deployment' and make sure the logs throw no errors.
+- Once compelted, select View.
+- This is the result
+![initial deployment](media/readme_img/django_deployment.png)
+
+
+### Production Deployment
+
+### Github & Gitpod 
+- Set DEBUG=False in the settings.py file
+- Update the requirements.txt file
+- Push to Github
+
+### Heroku
+- In the 'settings' tab reveal the config vars
+- Remove DISABLE_COLLECTSTATIC
+- Under the 'deploy' tab, select 'Deploy Manually'
+- Once finished, select View
+- This is the Result
+![production deployment](media/readme_img/final_deployment.png)
 <br><br>
 
 [Top of the page](#top)
@@ -261,31 +370,34 @@ These are the steps I took for the deployment:
 Throughout the development process a few bugs have been encountered, however one was paticularly challenging to solve:
 
 Problem:<br>
-The game was not terminating when the board was filled with the Player being the last user to input a symbol. The game was still expecting the next input without being able to continue as the board was full. Unless Q was pressed the game was stuck with no outcome.<br>
+Initially I could not perfom the initial deployment successfully. This is because I have tried to use Django 4.0 and some additional steps were needed to ensure the deployment was successfull<br>
 
 Solution:<br>
-The solution was to enter a break statement when the board has been filled and draw the conclusion if it was a win, loss or tie.
+I have downgraded to Django 3.8 for the purpose of this project.
 
 Problem:<br>
-The code wouldn't pass PEP8 Validation due to a boolean code being too big. Having tried to divide it and bring it to the next line, the code wouldn't work.
+When trying editing an existing post, the Image field was displaying a link to cloudinary to whichever picture was previously uploaded. Occassionally this would have thrown a not found error but not all the time.
 
 Solution:<br>
-Thanks to some constructive feedback from my mentor, I have converted the boolean code to a if condition. This has allowed me to be able to "split" the code and bring it to the next line.
+I have chosen to remove the Image field if a post was edited so the image link is not displayed. Another solution would have been to use Javascript to try and disable the link, giving the user the option to change the picture.
+
+Problem:<br>
+When adding a new post, the page was getting redirected to the home page. I wanted to redirect it to the post it'self however the redirection to the post.id was set wrongly causing an error to appear.
+
+Solution:<br>
+The solution was to setup the redirection correctly.<br>
+![redirection](media/readme_img/redirection.png)
+
 <br><br>
 ### Existing Bugs
 
-Althought there are no existing known bugs, one thing is to be mentioned. If the BOT starts first, it is impossible to win the game. The reason behind this is because the BOT will aways choose any random corners when starting first. This is a great strategy to win however the best outcome for the HUMAN is a tie.
+Currently there are no known existing bugs.
 
-Perhaps this could have been solved by introducing an element of difficulty selection at the begining of the game for the user to choose i.e. Beginner or Advanced. In the Beginner mode, the computer will select anything but the corners, allowing for a chance of winning. In the Advanced mode, the computer will have chosen a position completly random leaving the corner option in as well.
-
-I have come to the realisation of this when the game was fully developed. If more time was allowed I would have added this feature in as well.
 <br><br>
 
 [Top of the page](#top)
 
 ## <a name="credits">8. Credits</a>
-
-- The skeleton of the game was inspired by [Tech with Tim](https://www.techwithtim.net/) as I have been watching his page contents for the past year. Some of the code was inspired by his classes online.
 
 - [Stack Overflow](https://stackoverflow.com/) for help with code troubleshooting and suggestions on best practices.
 
