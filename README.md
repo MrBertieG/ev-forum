@@ -105,7 +105,7 @@ The main goal of the website is to allow users to interract with eachother by si
 
 ## Color Design
 
-The colour scheame was picked in the intention of keeping things simple and consistent. This has also allowed the website to be more accessible for those visually impaired users.<br>
+The colour scheame was picked in the intention of keeping things simple and consistent. This has also allowed the website to be more accessible for visually impaired users.<br>
 
 The Message Alerts have been chosen green to emphasize that a comment or a post has been added successfully. <br>
 ![alert message](media/readme_img/msg_alert.png)<br>
@@ -143,7 +143,7 @@ The 'Recent Posts' section on the landing page shows the last 6 recent posts mad
 
 ## Footer
 ![footer section](media/readme_img/footer.png)
-All the social media icons one in a new tab when clicked on. They also have a green hover effect.
+All the social media icons open in a new tab when clicked on. They also have a green hover effect.
 
 <br>
 
@@ -233,7 +233,7 @@ The wireframe was created using Balsamiq. As you can see, as the project evolved
 ![comment model](media/readme_img/model_database/comment_model.png)
 ![contact model](media/readme_img/model_database/contact_model.png)
 
-Project cards have been used to keep track of the project.<br>
+Project cards have been used to keep track of progress and add new ideas and features.<br>
 ![project cards](media/readme_img/projects_cards.png)
 <br><br>
 
@@ -418,6 +418,7 @@ The solution was to setup the redirection correctly.<br>
 ### Existing Bugs
 
 W3 HTML validator shows some errors which are not present in my code. This only shows when the jinja content is loaded. All of the html tags are opened and closed correctly.
+![w3c warnings](media/readme_img/w3c_warning.png)
 
 <br><br>
 
