@@ -105,7 +105,7 @@ The main goal of the website is to allow users to interract with eachother by si
 
 ## Color Design
 
-The colour scheame was picked in the intention of keeping simple and consistent. This has also allowed to website to be more accessible for those visually impaired.<br>
+The colour scheame was picked in the intention of keeping things simple and consistent. This has also allowed the website to be more accessible for those visually impaired users.<br>
 
 The Message Alerts have been chosen green to emphasize that a comment or a post has been added successfully. <br>
 ![alert message](media/readme_img/msg_alert.png)<br>
@@ -121,6 +121,7 @@ The Message Alerts have been chosen green to emphasize that a comment or a post 
 ### Main Image Banner
 
 The Main image on the landing page zooms in when first loaded.
+![main banner image](media/readme_img/main_banner_img.png)
 
 ### Navigation Bar
 Small to Medium Screens
@@ -204,7 +205,7 @@ Once registered or signed up, the user will be redirected to the homepage.
 
 ## 404 Not Found
 
-![not found](media/readme_img/404_not found.png)
+![404](media/readme_img/404_not found.png)
 
 [Top of the page](#top)
 ## <a name="wireframe">3. Wireframe</a>
@@ -231,6 +232,8 @@ The wireframe was created using Balsamiq.
 ![post model](media/readme_img/model_database/post_model.png)
 ![comment model](media/readme_img/model_database/comment_model.png)
 ![contact model](media/readme_img/model_database/contact_model.png)
+
+Project cards have been used to keep track of the project.<br>
 ![project cards](media/readme_img/projects_cards.png)
 <br><br>
 
@@ -266,7 +269,6 @@ urls.py evforum configuration
 
 ### CSS Validator
 
-style.css 
 ![style.css file](media/readme_img/css_validation/style_css.png)
 
 ### HTML Validator
@@ -276,7 +278,7 @@ style.css
 
 [Top of the page](#top)
 ### Manual Testing
-I have been using AmIResponsive to check the responsivness of the website.
+I have been using [AmIResponsive](http://ami.responsivedesign.is) to check the responsivness of the website.
 
 I have used Lighthouse for performance and accessibility check.
 ![lighthouse check](media/readme_img/lighthouse_performance.png)
@@ -326,7 +328,7 @@ I have used Lighthouse for performance and accessibility check.
 - Create requirements file
 
 ### Heroku
-- Log in to Heroku and create a new app 'p4-ev-forum'
+- Log into Heroku and create a new app 'p4-ev-forum'
 - in the 'Resources' tab search for PostgreSQL and sellect the 'hobby' option.
 - In the 'Settings' tab enable Config Vars
 - Link the following:
@@ -373,7 +375,7 @@ I have used Lighthouse for performance and accessibility check.
 
 ### Known Fixed Bugs
 
-Throughout the development process a few bugs have been encountered, however one was paticularly challenging to solve:
+Throughout the development process a few bugs have been encountered, however a few were paticularly challenging to solve:
 
 Problem:<br>
 Initially I could not perfom the initial deployment successfully. This is because I have tried to use Django 4.0 and some additional steps were needed to ensure the deployment was successfull<br>
@@ -385,10 +387,10 @@ Problem:<br>
 When trying editing an existing post, the Image field was displaying a link to cloudinary to whichever picture was previously uploaded. Occassionally this would have thrown a not found error but not all the time.
 
 Solution:<br>
-I have chosen to remove the Image field if a post was edited so the image link is not displayed. Another solution would have been to use Javascript to try and disable the link, giving the user the option to change the picture.
+I have chosen to remove the Image field if a post was edited so the image link is not displayed. Another solution would have been to use Javascript to try and disable the link, giving the user the option to change the picture if they wanted to.
 
 Problem:<br>
-When adding a new post, the page was getting redirected to the home page. I wanted to redirect it to the post it'self however the redirection to the post.id was set wrongly causing an error to appear.
+When adding a new post, the page was getting redirected to the home page. I wanted to redirect it to the post itself however the redirection to the post.id was set wrongly causing an error to appear.
 
 Solution:<br>
 The solution was to setup the redirection correctly.<br>
@@ -407,6 +409,8 @@ W3 HTML validator shows some errors which are not present in my code. This only 
 
 - [Stack Overflow](https://stackoverflow.com/) for help with code troubleshooting and suggestions on best practices.
 
-- Code Institute for the Gitpod initial template.
-
+- Code Institute for:
+	- Gitpod initial template
+	- The ideas from 'I think therefore I blog' module
+	- Tutors of CI for helping me with some bugs
 - My mentor Marcel Mulders for the constructive feedback and always pushing to go the extra step.
