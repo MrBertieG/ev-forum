@@ -10,7 +10,7 @@
             <h1 class="post-title">{{ post.title }}</h1>
             <p class="post-subtitle">{{ post.author }} | {{ post.created }}</p>
         </div>
-
+        <!--Space for the user to insert an image-->
         <div class="d-flex flex-row-reverse col-md-6">
             {% if "placeholder" in post.image.url %}
             <img src="https://res.cloudinary.com/dok67s0wm/image/upload/v1644002912/ev_logo_oesyu2.jpg" alt="evforum logo" class="img-thumbnail">
@@ -19,7 +19,7 @@
             {% endif %}
         </div>
     </div>
-
+    <!--Body of where the body of the post is entered-->
     <div class="container">
         <div class="row">
             <div class="col card mb-4  mt-3 left  top">
@@ -27,6 +27,7 @@
                     <p class="card-text ">{{ post.body | safe | linebreaks }}</p>
                     <div class="row">
                         <div class="col-lg-1 col-md-2 col-sm-3 col-3">
+                            <!--Ability to like a post, inspired by CI tutotrial-->
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
@@ -66,13 +67,13 @@
                             </div>
 
                             {% else %}
-
+                            <!--Likes counter-->
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
                             <span class="text-secondary"> {{ post.number_of_likes }} </span>
                         </div>
-
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-7">
+                        <!--Comment counter-->
+                        <div class="col-lg-1 col-md-2 col-sm-3 col-6">
                             {% with comments.count as total_comments %}
                             <strong class="text-secondary"><i class="far fa-comments"></i>
     
@@ -102,6 +103,7 @@
                 <hr>
             </div>
         </div>
+        <!--Section where comments are entered-->
         <div class="row">
             <div class="col-md-7 card mb-4  mt-3 ">
                 <div class="card-header bg-dark" id="comments-header">
@@ -122,13 +124,12 @@
                 </div>
             </div>
             <div class="col"></div>
+            <!--Authentication for users to leave comments-->
             <div class="col-md-4 card mb-4 mt-2 text-white comment-container">
-
                     <div class="card-header bg-dark comment-card">
                         {% if user.is_authenticated %}
                         <h3>Leave a comment:</h3>
                         <p>Posting as: {{ user.username }}</p>
-                        
                         <form method="post" style="margin-top: 1.3em;">
                             {{ comment_form | crispy }}
                             {% csrf_token %}
@@ -137,7 +138,6 @@
                     {% else %}
                     <div class="card-header bg-dark" style="margin-bottom: 0.3rem;">
                         <h3>Leave a comment:</h3>
-        
                         <p>To leave a comment or like a post, please <a class="text-decoration-none text-success" href="{% url 'account_login' %}">login</a>. If you
                             have not created an account yet, then <a class="text-decoration-none text-success" href="{% url 'account_signup' %}">sign up</a>
                             first.</p>

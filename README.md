@@ -205,7 +205,7 @@ Once registered or signed up, the user will be redirected to the homepage.
 
 ## 404 Not Found
 
-![404](media/readme_img/404_not found.png)
+![not found](media/readme_img/404_not_found.png) 
 
 [Top of the page](#top)
 ## <a name="wireframe">3. Wireframe</a>
@@ -298,19 +298,37 @@ I have used Lighthouse for performance and accessibility check.
 ## <a name="tech-used">5. Technologies used</a>
 
 ### HTML5
+- For the Hyper Text Markup Language
 ### CSS3
+- For the Cascade Style Sheets
 ### Python
+- For the backend app development
 ### Javascript
+- For the message allert timeout inspired by CI
 ### Boostrap 5
+- For the styling of the website
 ### Django 3.8
+- The base platform used to develop and bring all the dependencies together
 ### PostgreSQL
+- For the Database
 ### Heroku
+- For the app deployment
 ### Gitpod
+- The code development platform
 ### Github
+- To create and store my repository
 ### Balsamiq
+- For the initial design of my wireframe
 ### FontAwesome
+- For the icons present in templates
 ### Google Fonts
+- For the fonts 
 ### Google Chrome
+- For the Devtools
+### Online Code Validators:
+	- W3C
+	- PEP8
+	- JShint
 
 <br><br>
 
