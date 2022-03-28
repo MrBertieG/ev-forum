@@ -209,7 +209,7 @@ Once registered or signed up, the user will be redirected to the homepage.
 
 [Top of the page](#top)
 ## <a name="wireframe">3. Wireframe</a>
-The wireframe was created using Balsamiq.
+The wireframe was created using Balsamiq. As you can see, as the project evolved, the design has also changed, however the wireframe was crucial in identifying which design approach the website will take.
 
 ![mobile wireframe](media/readme_img/mobile_frame_1.png)
 ![mobile wireframe](media/readme_img/mobile_frame_2.png)
